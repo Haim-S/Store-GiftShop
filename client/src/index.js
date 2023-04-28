@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ProviderAuth from "./context/contextAuth";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <ProviderAuth>
     <App />
+    </ProviderAuth>
   </React.StrictMode>
 );
 

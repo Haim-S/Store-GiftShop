@@ -15,8 +15,8 @@ exports.getAll = async (req, res)=> {
 
 exports.getAllById = async (req, res)=> {
     try {
-      
-            const myOrders = await Order.find({client:  req.body.client});
+    //   console.log(req.body);
+            const myOrders = await Order.find({client: req.body.client});
             res.status(200).send(myOrders);
        
        

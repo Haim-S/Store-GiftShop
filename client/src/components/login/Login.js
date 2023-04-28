@@ -1,28 +1,45 @@
 import React, {useRef} from 'react'
 import "./login.css";
-import {TextField, Button} from "@mui/material";
+import {TextField} from "@mui/material";
 import {Alert} from '@mui/material';
+import {UseAuthContext} from "../../context/contextAuth";
+import {useNavigate} from "react-router-dom";
+
+
 
 const Login = ({setShowLogin}) => {
+
+
+
+  const Use_Login = UseAuthContext().Use_Login;
+  const isAuth = UseAuthContext().isAuth;
 
   const emailRef = useRef();
   const passwordRef = useRef();
 
+  const navigate = useNavigate();
 
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit =  async(e) => {
     e.preventDefault();
     const values = {email: emailRef.current.value,password:  passwordRef.current.value}
-    console.log(values);
+    console.log(isAuth);
+    await Use_Login(values);
     emailRef.current.value = "";
     passwordRef.current.value = "";
-  }
+    if(isAuth) navigate("/");
+
+    }
+  
   
 
 const error = "";
     
     
   return (
+ 
+ 
     <div className='LoginBox'>
         <h1 className='LoginTitle'>Login</h1>
         <form onSubmit={handleSubmit}>
@@ -42,6 +59,7 @@ const error = "";
         </div>
         </form>
     </div>
+
   )
 }
 

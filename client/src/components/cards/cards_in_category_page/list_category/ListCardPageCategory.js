@@ -13,7 +13,7 @@ const ListCardPageCategory = ({oneCategory}) => {
       <H3>See Our {oneCategory ? (oneCategory[0] ? oneCategory[0].category : " ") : ""}</H3>
       </TitleCategory>
     <ListCardStyle>
-    {oneCategory.map((one)=>  <CardPageCategory itemCategory={one}/> )}
+    {oneCategory.map((one, index)=>  <CardPageCategory key={index} itemCategory={one}/> )}
     </ListCardStyle>
     </>
   )

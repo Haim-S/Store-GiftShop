@@ -3,7 +3,8 @@ import React, {useRef} from 'react'
 import "../login/login.css";
 import {TextField} from "@mui/material";
 import {Alert} from '@mui/material';
-
+import {useNavigate} from "react-router-dom";
+import {UseAuthContext} from "../../context/contextAuth";
 
 
 const Register = ({setShowLogin}) => {
@@ -17,21 +18,34 @@ const Register = ({setShowLogin}) => {
   const ageRef = useRef();
   const countryRef = useRef();
 
+  
+  const navigate = useNavigate();
 
 
-  const handleSubmit = (e) => {
+
+  const Use_Register = UseAuthContext().Use_Register;
+  const isAuth = UseAuthContext().isAuth;
+
+  const handleSubmit = async(e) => {
     e.preventDefault();
     const values = {
-      email: emailRef.current.value,
+      email:     emailRef.current.value,
       password:  passwordRef.current.value,
-      firstName:  firstNameRef.current.value,
+      firstName: firstNameRef.current.value,
       lastName:  lastNameRef.current.value,
-      age:  ageRef.current.value,
-      country: countryRef.current.value
+      age:       ageRef.current.value,
+      country:   countryRef.current.value
     }
-    console.log(values);
+    await Use_Register(values);
+    
     emailRef.current.value = "";
     passwordRef.current.value = "";
+    firstNameRef.current.value = "";
+    lastNameRef.current.value = "";
+    ageRef.current.value = "";
+    countryRef.current.value = "";
+    // console.log(isAuth);
+    if(isAuth) navigate("/");
   }
   
 

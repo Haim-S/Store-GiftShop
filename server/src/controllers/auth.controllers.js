@@ -23,6 +23,7 @@ exports.login = async (req, res) => {
 }
 
 exports.register = async (req, res) => {
+    console.log(req.body);
     try {
         await User.create(req.body);
         return res.redirect(307, "/auth/login");
