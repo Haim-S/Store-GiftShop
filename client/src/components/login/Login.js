@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, {useRef, useEffect} from 'react'
 import "./login.css";
 import {TextField} from "@mui/material";
 import {Alert} from '@mui/material';
@@ -25,16 +25,19 @@ const Login = ({setShowLogin}) => {
     e.preventDefault();
     const values = {email: emailRef.current.value,password:  passwordRef.current.value}
     console.log(isAuth);
-    await Use_Login(values);
+     await Use_Login(values);
     emailRef.current.value = "";
     passwordRef.current.value = "";
-    if(isAuth) navigate("/");
-
+    // if(isAuth) navigate("/");
     }
-  
+
   
 
 const error = "";
+
+useEffect(()=> {
+  if(isAuth) navigate("/");
+},[isAuth])
     
     
   return (
@@ -42,6 +45,7 @@ const error = "";
  
     <div className='LoginBox'>
         <h1 className='LoginTitle'>Login</h1>
+          
         <form onSubmit={handleSubmit}>
         <div style={{ display: "flex", alignContent: "center", justifyContent: "center", flexDirection: "column"}}>
             <p>New here? <span className='sign-color' onClick={()=> setShowLogin(false)}>Sign Up</span></p>
@@ -58,6 +62,7 @@ const error = "";
         <button className='Btnsign' type="submit" variant="contained">login</button>
         </div>
         </form>
+
     </div>
 
   )

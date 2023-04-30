@@ -14,7 +14,8 @@ export const login = async (value)=> {
             }),
         });
         const data = await res.json();
-        return setLocalStorageValue("token", data.jwt_ac_token);
+        setLocalStorageValue("token", data.jwt_ac_token);
+        return data; 
     } catch (error) {
         return Promise.reject(error);
     }

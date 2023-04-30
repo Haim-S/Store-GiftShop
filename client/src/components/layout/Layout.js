@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Suspense} from 'react'
 import { useLocation } from 'react-router-dom';
 import Navbar from './navbar/Navbar';
 import Header from './header/Header';
@@ -25,9 +25,11 @@ const location = useLocation();
     <Header/>
    
     }
+    <Suspense fallback={<h1>loading....</h1>}>
      <main>
       <Outlet/>
      </main>
+    </Suspense>
     <Footer/>
     </>
   )

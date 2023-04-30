@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+
+import React, { createContext, useContext, useState } from "react";
 import {login , register, logout} from "../service/serviceAuth";
 
 const authContext = createContext();
@@ -15,7 +16,8 @@ export default function ProviderAuth({children}){
 
     const Use_Login =  async (value) => {
         const res = await login(value);
-        setIsAuth(true);
+        console.log({isAuth, res});
+       setIsAuth(true);
         return res;
     }
     
@@ -33,7 +35,7 @@ export default function ProviderAuth({children}){
     }
 
     return(
-        <authContext.Provider value={{Use_Login, Use_Register, Use_Logout, isAuth}}>
+        <authContext.Provider value={{Use_Login, Use_Register, Use_Logout, isAuth, setIsAuth}}>
             {children}
         </authContext.Provider>
     );
