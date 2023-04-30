@@ -15,10 +15,10 @@ export default function ProviderOrder({children}){
     const [orderList, setOrderList] = useState();
 
 
-    const Use_CreateOrder = async (value)=> {
-        const res = await createOrder(value);
+    const Use_CreateOrder = async (value, total)=> {
+        const res = await createOrder(value, total);
         console.log({from: "order", res});
-        return setOrderList(res);
+        return res;
     }
 
     const Use_DeleteOrder = async (id_order)=> {

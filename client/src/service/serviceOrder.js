@@ -3,7 +3,13 @@ import {getLocalStorageValue} from "../utils/localStorage.utils";
 
 
 
-export const createOrder = async (value) => {
+export const createOrder = async (value, total) => {
+    const body = {
+        client: getLocalStorageValue("id_client"),
+        products: value,
+        total: total 
+    };
+    console.log(body);
     try {
         const res = await fetch(`${END_POINT_ORDER}/create`, {
             method: "POST",
@@ -13,7 +19,7 @@ export const createOrder = async (value) => {
             body: JSON.stringify({
                 client: getLocalStorageValue("id_client"),
                 products: value,
-                total: 300 
+                total: total 
             }),
         });
         const data = await res.json();

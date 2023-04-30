@@ -15,6 +15,7 @@ const AboutPage = React.lazy(()=> import("./AboutPage"));
 const ErrorPage = React.lazy(()=> import("./ErrorPage"));
 const OneCardPage = React.lazy(()=> import("./OneCardPage"));
 const SignUpPage = React.lazy(()=> import("./SignUpPage"));
+const OrderPage = React.lazy(()=> import("./OrderPage"));
 
 
 const mainRoutes = [
@@ -50,6 +51,11 @@ const mainRoutes = [
         path: "/login",
         component: SignUpPage,
         isProtected: false,
+    },
+    {
+        path: "/my-orders",
+        component: OrderPage,
+        isProtected: true,
     }
 ]
 

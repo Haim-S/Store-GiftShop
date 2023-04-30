@@ -9,7 +9,8 @@ const orderSchema = new Schema({
     },
     creatAt: {type: Date, default: Date.now()},
     products: [{
-        type: String
+        name: {type: String},
+        quantity: {type: Number},
     }],
     total: {type: Number}
 

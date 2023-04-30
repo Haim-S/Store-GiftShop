@@ -19,6 +19,7 @@ const Navbar = () => {
        <div className='container-Navbarlogin'>
         
 <LinkStyle>Support</LinkStyle>
+<LinkStyle to="/my-orders">My Orders</LinkStyle>
 <LinkStyle to="/login">Login</LinkStyle>
         </div> 
 <from>
