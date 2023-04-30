@@ -15,6 +15,7 @@ export const login = async (value)=> {
         });
         const data = await res.json();
         setLocalStorageValue("token", data.jwt_ac_token);
+        setLocalStorageValue("id_client", data._id);
         return data; 
     } catch (error) {
         return Promise.reject(error);
@@ -40,6 +41,7 @@ export const register = async (value)=> {
         const data = await res.json();
         // console.log(data);
         // return data;
+        setLocalStorageValue("id_client", data._id);
         return setLocalStorageValue("token", data.jwt_ac_token);
     } catch (error) {
         return Promise.reject(error);

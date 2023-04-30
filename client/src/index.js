@@ -5,13 +5,16 @@ import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 import ProviderAuth from "./context/contextAuth";
 import ProviderContainer from "./context/contextController";
+import ProviderOrder from './context/contextOrder';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ProviderAuth>
       <ProviderContainer>
+        <ProviderOrder>
     <App />
+        </ProviderOrder>
       </ProviderContainer>
     </ProviderAuth>
   </React.StrictMode>

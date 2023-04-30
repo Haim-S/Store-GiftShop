@@ -19,7 +19,6 @@ const Navbar = () => {
        <div className='container-Navbarlogin'>
         
 <LinkStyle>Support</LinkStyle>
-<LinkStyle to={"/login"}>Register</LinkStyle>
 <LinkStyle to="/login">Login</LinkStyle>
         </div> 
 <from>

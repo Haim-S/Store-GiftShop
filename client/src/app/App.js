@@ -25,6 +25,7 @@ function App() {
     
     return () => {
       deleteLocalStorageValue("token");
+      deleteLocalStorageValue("id_client");
     }
   },[])
   
