@@ -24,7 +24,7 @@ const Login = ({setShowLogin}) => {
   const handleSubmit =  async(e) => {
     e.preventDefault();
     const values = {email: emailRef.current.value,password:  passwordRef.current.value}
-    console.log(isAuth);
+
      await Use_Login(values);
     emailRef.current.value = "";
     passwordRef.current.value = "";

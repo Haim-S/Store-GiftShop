@@ -1,6 +1,6 @@
 
 import React, {createContext, useContext, useState} from "react";
-import {createOrder, deleteOrder} from "../service/serviceOrder";
+import {getAllMyOrders,createOrder, deleteOrder} from "../service/serviceOrder";
 
 
 const orderContext = createContext();
@@ -12,25 +12,31 @@ export function UseOrderContext(){
 
 export default function ProviderOrder({children}){
 
-    const [orderList, setOrderList] = useState();
+    const [products, setproducts] = useState();
+
+    const Use_getAllMyOrders = async ()=>{
+        const res = await getAllMyOrders();
+        return setproducts(res);
+    }
 
 
     const Use_CreateOrder = async (value, total)=> {
         const res = await createOrder(value, total);
-        console.log({from: "order", res});
         return res;
     }
 
     const Use_DeleteOrder = async (id_order)=> {
         const res = await deleteOrder(id_order);
         console.log({from: "order", res});
-        return setOrderList(res);
+        setproducts(res);
+        return res;
     }
-
+    
+    
 
 
     return(
-        <orderContext.Provider value={{Use_CreateOrder, Use_DeleteOrder, orderList}}>
+        <orderContext.Provider value={{Use_getAllMyOrders, Use_CreateOrder, Use_DeleteOrder, products}}>
             {children}
         </orderContext.Provider>
     )

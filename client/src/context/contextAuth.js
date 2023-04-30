@@ -16,7 +16,6 @@ export default function ProviderAuth({children}){
 
     const Use_Login =  async (value) => {
         const res = await login(value);
-        console.log({isAuth, res});
        setIsAuth(true);
         return res;
     }

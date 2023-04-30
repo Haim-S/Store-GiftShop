@@ -15,7 +15,7 @@ export default function ProviderContainer({children}) {
     const [cart, setCart] = useState([]);
     const [id, setId] = useState(1);
 
-console.log(cart);
+
 
     const cartArray = (ProductsItem,discountedPrice,countProducts, totalPrice) => {
        

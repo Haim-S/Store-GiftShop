@@ -10,6 +10,7 @@ const orderSchema = new Schema({
     creatAt: {type: Date, default: Date.now()},
     products: [{
         name: {type: String},
+        price: {type: Number},
         quantity: {type: Number},
     }],
     total: {type: Number}

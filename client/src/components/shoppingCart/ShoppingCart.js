@@ -22,7 +22,7 @@ const ShoppingCart = () => {
 const totalPriceItems = cart.reduce((sum, item) => sum + item.TotalPrice, 0);
 
 const handleButtonCheckOut = async (cart, total)=>{
-  const value = cart.map((item)=> ({name: item.product,  quantity: item.Quantity}));
+  const value = cart.map((item)=> ({name: item.product, price: item.unitPrice, quantity: item.Quantity}));
 //   console.log(total);
 // const value =  ["shoping", "shoping", "fun"];
 

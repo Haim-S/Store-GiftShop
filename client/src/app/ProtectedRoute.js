@@ -5,7 +5,7 @@ import { UseAuthContext } from '../context/contextAuth'
 const ProtectedRoute = ({children}) => {
 
     const isAuth = UseAuthContext().isAuth;
-    console.log(isAuth);
+  
 
   return (
 
