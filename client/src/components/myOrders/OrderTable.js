@@ -10,27 +10,40 @@ const OrderTable = () => {
 
   return (
     <>
-             
-  <table>
-
-  <tr>
-  <thead>Order Num: {products.length}</thead>
-  <thead>Product</thead>
-  <thead>Quantity</thead>
-  <thead>creatAt</thead>
-  <thead>Actions</thead>
-  </tr>
-  {products.Object(products).key((products) => {
-    console.log(products);
-//  <tr>
-//  <tbody>{products.name}</tbody>
-//  <tbody>{products.quantity}</tbody>
-//  <tbody>{products.creatAt}</tbody>
-//  </tr>
-  })}
- 
-  
-  </table>
+   <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Created At</th>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {products.map(product => (
+          <tr key={product._id}>
+            <td>{product._id}</td>
+            <td>{product.creatAt}</td>
+            <td>
+              {product.products.map(item => (
+                <div key={item._id}>
+                  {item.name}
+                </div>
+              ))}
+            </td>
+            <td>
+              {product.products.map(item => (
+                <div key={item._id}>
+                  {item.quantity}
+                </div>
+              ))}
+            </td>
+            <td>{product.total}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
     
     </>
   )
