@@ -12,6 +12,7 @@ const OrderTable = () => {
     const {products, Use_DeleteOrder} = UseOrderContext();
 
     const [notCancel, setNotCancel] = useState(true)
+    const [success, setSuccess] = useState(false)
 
 
     const formattedDate = (creatAt) => {
@@ -21,8 +22,13 @@ return date.toLocaleDateString();
     }
 
     const deleteOrderifOk = async (id, creatAt)=>{
+
       if(checkIfSevenDaysPassed(creatAt)){
        await Use_DeleteOrder(id)
+       setSuccess(true);
+       setTimeout(()=> {
+        setSuccess(false);
+      },2500)
       }
       setNotCancel(false);
       setTimeout(()=> {
@@ -48,7 +54,10 @@ return date.toLocaleDateString();
   return (
     <>
     {
-      notCancel?  " " : <Alert severity="error">Cannot delete this order, It's been a week since ordering</Alert> 
+     notCancel ? "" : <Alert severity="error">Cannot delete this order, It's been a week since ordering</Alert>
+    }
+    {
+      success?  <Alert severity="success">This is a success alert — check it out!</Alert> : ""
     }
 
    <table>
