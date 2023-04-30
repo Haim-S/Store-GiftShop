@@ -93,7 +93,7 @@ return date.toLocaleDateString();
               ))}
             </td>
             <td>{formatPrice(product.total)}</td>
-            <td><CancelIcon sx={{":hover": "backgroundColor: white"}} onClick={()=> deleteOrderifOk(product._id, product.creatAt)}/></td>
+            <td><CancelIcon sx={{'&:hover': { color: '#e57373' }}} onClick={()=> deleteOrderifOk(product._id, product.creatAt)}/></td>
           </tr>
         ))}
       </tbody>
