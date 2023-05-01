@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './app/App';
 import reportWebVitals from './reportWebVitals';
+import ProviderBrain from './context/contextTheBrain';
 import ProviderAuth from "./context/contextAuth";
 import ProviderContainer from "./context/contextController";
 import ProviderOrder from './context/contextOrder';
@@ -10,6 +11,7 @@ import ProviderOrder from './context/contextOrder';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <ProviderBrain>
     <ProviderAuth>
       <ProviderContainer>
         <ProviderOrder>
@@ -17,6 +19,7 @@ root.render(
         </ProviderOrder>
       </ProviderContainer>
     </ProviderAuth>
+    </ProviderBrain>
   </React.StrictMode>
 );
 
